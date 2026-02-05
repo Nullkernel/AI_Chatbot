@@ -131,7 +131,7 @@ with st.sidebar:
     
     # Display sessions
     for session in st.session_state.sessions:
-        col1, col2 = st.columns([4, 1])
+        col1, col2 = st.columns([5, 1])
         with col1:
             if st.button(
                 f"💬 {session['title']}",
@@ -143,9 +143,10 @@ with st.sidebar:
                 st.rerun()
         with col2:
             if st.button(
-                "🗑️",
+                "❌",
                 key=f"delete_{session['session_id']}",
-                help="Delete this chat"
+                help="Delete this chat",
+                use_container_width=True
             ):
                 if delete_session(session['session_id']):
                     st.success("Deleted!")
