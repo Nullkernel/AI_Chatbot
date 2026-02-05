@@ -909,27 +909,27 @@ Building this AI chatbot provided hands-on experience with cutting-edge AI techn
 ### 15.2 Screenshots
 
 #### Screenshot 1: Home Screen
-![Home Screen](screenshot_home.png)
+![Home Screen](screenshot_home.jpeg)
 - Clean interface with gradient header
 - "New Chat" button prominent in sidebar
 - Welcome message prompts user to start
 
 #### Screenshot 2: Active Chat Session
-![Chat Session](screenshot_chat.png)
+![Chat Session](screenshot_chat.jpeg)
 - User message in left column with avatar
 - AI response in right column with avatar
 - Timestamps for each message
 - Chat input at bottom
 
 #### Screenshot 3: Context Memory Demonstration
-![Context Memory](screenshot_context.png)
+![Context Memory](screenshot_context.jpeg)
 - Follow-up question references previous message
 - AI correctly recalls earlier context
 - Natural conversation flow
 - Timestamps show real-time responses
 
 #### Screenshot 4: Multiple Sessions
-![Session Management](screenshot_sessions.png)
+![Session Management](screenshot_sessions.jpeg)
 - Multiple chat sessions in sidebar
 - Current session highlighted
 - Delete button for each session
