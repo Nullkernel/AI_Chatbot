@@ -1,9 +1,9 @@
 # AI Chatbot Project Report
 
-**Student Name:** [Your Name]  
+**Student Name:** Amal Bijoy  
 **Project Title:** AI Chatbot Using Claude Sonnet 4.5  
 **Date:** February 5, 2026  
-**GitHub Repository:** [Your Repository URL]
+**GitHub Repository:** [Repository](https://github.com/Nullkernel/AI_Chatbot/)
 
 ---
 
