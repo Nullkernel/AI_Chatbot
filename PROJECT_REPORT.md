@@ -1037,6 +1037,6 @@ Repository Contents:
 
 **Document Version:** 1.0  
 **Last Updated:** February 5, 2026  
-**Author:** [Your Name]  
-**Course:** [Your Course Name]  
-**Institution:** [Your Institution]
+**Author:** Amal Bijoy  
+**Course:** CSE (AI & ML)  
+**Institution:** IARE
