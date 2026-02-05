@@ -150,21 +150,34 @@ async def chat(request: ChatRequest):
         if not api_key:
             raise HTTPException(status_code=500, detail="API key not configured")
         
-        # Create LLM chat instance
-        chat_instance = LlmChat(
-            api_key=api_key,
-            session_id=session_id,
-            system_message="You are a helpful AI assistant. Provide clear, concise, and friendly responses."
-        ).with_model("anthropic", "claude-sonnet-4-5-20250929")
-        
-        # Get chat history to maintain context
+        # Get chat history to build context
         history_messages = await db.chat_messages.find(
             {"session_id": session_id},
             {"_id": 0}
         ).sort("timestamp", 1).to_list(1000)
         
+        # Build context from history
+        context_messages = []
+        for msg in history_messages:
+            role = "User" if msg['role'] == "user" else "Assistant"
+            context_messages.append(f"{role}: {msg['content']}")
+        
+        # Create full prompt with context
+        if context_messages:
+            context_text = "\n".join(context_messages[-10:])  # Last 10 messages for context
+            full_prompt = f"Previous conversation:\n{context_text}\n\nUser: {request.message}"
+        else:
+            full_prompt = request.message
+        
+        # Create LLM chat instance
+        chat_instance = LlmChat(
+            api_key=api_key,
+            session_id=session_id,
+            system_message="You are a helpful AI assistant. Provide clear, concise, and friendly responses. Remember the conversation context and refer to previous messages when relevant."
+        ).with_model("anthropic", "claude-sonnet-4-5-20250929")
+        
         # Send message to Claude
-        user_msg = UserMessage(text=request.message)
+        user_msg = UserMessage(text=full_prompt)
         assistant_response = await chat_instance.send_message(user_msg)
         
         # Save user message
